@@ -1,6 +1,6 @@
-import { expect } from '@playwright/test';
+const { expect } = require('@playwright/test');
 
-export default class CartPage {
+class CartPage {
   constructor(page) {
     this.page = page;
     this.cartButton = page.locator('[routerlink*="cart"]');
@@ -13,13 +13,11 @@ export default class CartPage {
   }
 
   async checkIfProductIsInCart(productNameToBuy) {
-    await expect(
-      await this.getProductTitleInCart(productNameToBuy)
-    ).toBeVisible();
+    await expect(this.getProductTitleInCart(productNameToBuy)).toBeVisible();
     const isProductNameToBuyOnCart = await this.getProductTitleInCart(
       productNameToBuy
     ).isVisible();
-    expect(await isProductNameToBuyOnCart).toBeTruthy();
+    expect(isProductNameToBuyOnCart).toBeTruthy();
   }
 
   getProductTitleInCart(productNameToBuy) {
@@ -47,3 +45,5 @@ export default class CartPage {
     return options.locator(`text=${country}`);
   }
 }
+
+module.exports = CartPage;

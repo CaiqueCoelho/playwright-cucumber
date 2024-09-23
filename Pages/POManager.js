@@ -1,8 +1,8 @@
-import CartPage from './CartPage';
-import DashboardPage from './DashboardPage';
-import LoginPage from './LoginPage';
+const CartPage = require('./CartPage');
+const DashboardPage = require('./DashboardPage');
+const LoginPage = require('./LoginPage');
 
-export default class POManager {
+class POManager {
   constructor(page) {
     this.page = page;
     this.loginPage = new LoginPage(page);
@@ -22,3 +22,5 @@ export default class POManager {
     return this.cartPage;
   }
 }
+
+module.exports = POManager;

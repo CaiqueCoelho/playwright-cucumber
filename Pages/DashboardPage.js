@@ -1,6 +1,6 @@
-import { expect } from '@playwright/test';
+const { expect } = require('@playwright/test');
 
-export default class DashboardPage {
+class DashboardPage {
   constructor(page) {
     this.page = page;
     this.products = page.locator('.card-body');
@@ -47,3 +47,5 @@ export default class DashboardPage {
     await this.cartButton.click();
   }
 }
+
+module.exports = DashboardPage;
