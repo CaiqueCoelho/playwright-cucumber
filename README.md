@@ -16,3 +16,42 @@ SHIFT + COMMAND + P : debug npm script
 
 java -jar jenkins.war -httpPort=9090
 java -jar jenkins.war -httpPort=9090 --enable-future-java
+
+Compile ts to js and run js file
+
+```
+tsc demo1.ts
+node demo1.ts
+```
+
+Cucumber run:
+
+```
+npx cucumber-js --exit
+npx cucumber-js features/ErrorValidations.feature --exit
+npx cucumber-js --tags "@Regression" --exit
+```
+
+Running cucumber in parallel
+
+```
+npx cucumber-js features/Ecommerce.feature --parallel 2 --exit
+```
+
+Generating Report
+
+```
+npx cucumber-js features/Ecommerce.feature --parallel 2 --exit --format html:cucumber-report.html
+```
+
+Running with retry
+
+```
+npx cucumber-js --retry 1 features/Ecommerce.feature --parallel 2 --exit --retry
+```
+
+Running with tags
+
+```
+npx cucumber-js --tags "@Regression" --exit
+```
